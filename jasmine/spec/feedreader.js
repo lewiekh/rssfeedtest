@@ -80,7 +80,7 @@ $(function() {
          */
         it('loads and completes with at least 1 entry', function() {
             //verifies that when the loadFeed() function runs that child elements are nested under the element with the feed class
-            var count = $(".feed").children().length;
+            var count = $('.feed .entry-link').length;
             expect(count).toBeGreaterThan(0);
         });
     });
@@ -90,13 +90,11 @@ $(function() {
         var link2;
         beforeEach(function(done) {
             //runs the loadFeed() function and fills the url div with a link
-            link = $(".feed").html();
-            loadFeed(0, done);
+            loadFeed(0, function(){
+              link = $(".feed").html();
+              done();
+            });
         });
-        // afterAll(function(done){
-        //   link2 = $(".entry-link").attr('href');
-        //   loadFeed(1,done);
-        // });
         /*  Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
