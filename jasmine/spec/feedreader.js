@@ -80,7 +80,7 @@ $(function() {
          */
         it('loads and completes with at least 1 entry', function() {
             //verifies that when the loadFeed() function runs that child elements are nested under the element with the feed class
-            var count = $('.feed .entry-link').length;
+            var count = $('.feed .entry').length;
             expect(count).toBeGreaterThan(0);
         });
     });
